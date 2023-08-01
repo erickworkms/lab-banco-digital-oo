@@ -1,24 +1,34 @@
 package org.contas.model;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+@AllArgsConstructor
+@Getter
 public class Cliente {
 
-	private String nome;
-	private String dataNascimento;
-	private String cpf;
-	private List<Conta> Contas;
-	private String endereco;
-	private String telefone;
-	private String email;
-	private String senha;
+	@NonNull
+	private int idCliente;
+	@NonNull
+	private String usuario="";
+	@NonNull
+	private String nome="";
+	@NonNull
+	private String dataNascimento="";
+	@NonNull
+	private String cpf="";
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
+	private List<Conta> Contas = new ArrayList();
+	@NonNull
+	private String endereco="";
+	@NonNull
+	private String telefone="";
+	@NonNull
+	private String email="";
+	@NonNull
+	private String senha="";
 }

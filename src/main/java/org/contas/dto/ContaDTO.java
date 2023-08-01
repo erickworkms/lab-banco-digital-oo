@@ -1,12 +1,19 @@
 package org.contas.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import org.contas.controller.ContaType;
 import org.contas.model.Cliente;
-import org.contas.model.IConta;
 
-public abstract class ContaDTO implements IConta {
+@Getter
+@Setter
+@AllArgsConstructor
+public class ContaDTO {
 
+	private int idCliente;
 	private int agencia;
 	private int numero;
 	private double saldo;
-	private Cliente cliente;
+	private ContaType tipoConta;
 }
