@@ -16,7 +16,7 @@ public interface IConta {
 	void criarUsuario(ClienteDTO clienteDTO);
 	void deletarUsuario(ClienteDTO clienteDTO);
 	void sacar(double valor,ContaDTO ContaDTO);
-	void depositar(double valor,ContaDTO ContaDTO);
-	void transferir(double valor, ContaDTO ContaDTO);
+	void depositar(double valor,ContaDTO ContaDTO,int cpf);
+	void transferir(double valor, ContaDTO ContaDTO,int cpf);
 	void imprimirExtrato(ContaDTO ContaDTO);
 }

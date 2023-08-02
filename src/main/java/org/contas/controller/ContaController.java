@@ -56,13 +56,13 @@ public class ContaController implements IConta {
     }
 
     @Override
-    public void depositar(double valor, ContaDTO ContaDTO) {
-        contaService.depositar(valor,ContaDTO);
+    public void depositar(double valor, ContaDTO ContaDTO,int cpf) {
+        contaService.depositar(valor,ContaDTO,cpf);
     }
 
     @Override
-    public void transferir(double valor, ContaDTO ContaDTO) {
-        contaService.transferir(valor,ContaDTO);
+    public void transferir(double valor, ContaDTO ContaDTO,int cpf) {
+        contaService.transferir(valor,ContaDTO,cpf);
     }
 
     @Override

@@ -22,7 +22,7 @@ public class Cliente {
 	@NonNull
 	private String cpf="";
 
-	private List<Conta> Contas = new ArrayList();
+	private List<Conta> contas;
 	@NonNull
 	private String endereco="";
 	@NonNull
@@ -31,4 +31,11 @@ public class Cliente {
 	private String email="";
 	@NonNull
 	private String senha="";
+
+	public void addConta(Conta conta){
+		if (contas == null){
+			contas = new ArrayList<>();
+		}
+		contas.add(conta);
+	}
 }

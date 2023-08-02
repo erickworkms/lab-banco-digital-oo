@@ -17,7 +17,7 @@ import java.util.List;
 @Setter
 public class Banco {
 
-    private List<Conta> contas;
+    private List<Conta> contas= new ArrayList<>();
 
     private Login informacaoLogin = new Login(false, null, 0,0,0,0,ContaType.CONTAPOUPANCA);
 
@@ -38,7 +38,15 @@ public class Banco {
     public void criaContas(ContaDTO contaDTO) {
         for (Cliente verCliente : clientes) {
             if (contaDTO.getIdCliente() == verCliente.getIdCliente()) {
-                Conta conta = new Conta(contaDTO.getIdCliente(),contaDTO.getTipoConta(),verCliente.getContas().size());
+                int numeroConta;
+                if (verCliente.getContas()!= null){
+                    numeroConta = verCliente.getContas().size();
+                }
+                else
+                    numeroConta = 1;
+
+                Conta conta = new Conta(contaDTO.getIdCliente(),contaDTO.getTipoConta(),numeroConta);
+                verCliente.addConta(conta);
                 contas.add(conta);
                 System.out.println("Conta criada com sucesso!  ");
                 System.out.println("Segue os dados de sua conta");

@@ -9,9 +9,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/controller/ContaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/controller/ContaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/dto/LoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/dto/LoginDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/model/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/model/Conta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/model/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/model/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/service/ContaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/service/ContaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/service/IConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/service/IConta.java" afterDir="false" />
     </list>
@@ -87,19 +85,35 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java</url>
-          <line>37</line>
-          <properties class="org.contas.dao.Banco" method="criaContas">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
+          <line>151</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="3" />
+          <line>150</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java</url>
+          <line>171</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java</url>
+          <line>172</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

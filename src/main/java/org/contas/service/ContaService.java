@@ -79,12 +79,12 @@ public final class ContaService implements IConta {
     }
 
     @Override
-    public void depositar(double valor, ContaDTO ContaDTO) {
+    public void depositar(double valor, ContaDTO ContaDTO,int cpf) {
         System.out.println(banco.depositar(valor, ContaDTO));
     }
 
     @Override
-    public void transferir(double valor, ContaDTO ContaDTO) {
+    public void transferir(double valor, ContaDTO ContaDTO,int cpf) {
         System.out.println(banco.transferir(valor, ContaDTO));
     }
 
