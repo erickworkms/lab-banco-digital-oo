@@ -202,6 +202,7 @@ public class Main {
                         break;
                 }
                 while (contaEscolhida) {
+                    dadosLogin = controle.verInicioLogin();
                     System.out.println("/////////////////////////////////////////");
                     System.out.println("/////////////////////////////////////////");
                     System.out.println("Usuario : " + dadosLogin.getCliente());
@@ -246,6 +247,7 @@ public class Main {
                                 contaAtiva.setAgencia(dadosLogin.getAgencia());
                                 contaAtiva.setNumero(dadosLogin.getContaNumero());
                                 controle.depositar(valor, contaAtiva, 0);
+                                controle.verContaEscolhida(dadosLogin.getContaNumero(),dadosLogin.getAgencia(), dadosLogin.getCliente());
                             }else if (escolha.equals("2")) {
                                     System.out.println("////////////////////////////////////");
                                     System.out.println("Digite o numero da conta");
@@ -294,6 +296,7 @@ public class Main {
                             controle.depositar(valor, contaAtiva, cpf);
                             break;
                         case "5":
+                            dadosLogin = controle.verInicioLogin();
                             contaAtiva.setAgencia(dadosLogin.getAgencia());
                             contaAtiva.setNumero(dadosLogin.getContaNumero());
                             contaAtiva.setNumero(dadosLogin.getIdCliente());

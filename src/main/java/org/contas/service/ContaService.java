@@ -42,6 +42,7 @@ public final class ContaService implements IConta {
         boolean verSenha = banco.verSenhaLogin(clienteDTO);
         if (verSenha) {
             System.out.println("Usuario" + clienteDTO.getNome() + " foi logado no sistema");
+            banco.getInformacaoLogin().setVerUsuarioLogado(true);
             return true;
         } else
             System.out.println("Usuario não logado");
