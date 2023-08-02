@@ -216,8 +216,9 @@ public class Main {
                     System.out.println("////       2 -  Depositar em conta    ////");
                     System.out.println("////       3 -  Saque em Conta        ////");
                     System.out.println("////       4 -  Transferir dinheiro   ////");
-                    System.out.println("////       5 -  Deslogar              ////");
-                    System.out.println("////       6 -  Fechar Programa       ////");
+                    System.out.println("////       5 -  Extrato bancario      ////");
+                    System.out.println("////       6 -  Deslogar              ////");
+                    System.out.println("////       7 -  Fechar Programa       ////");
 
                     escolha = LerDados.lerDado();
                     switch (escolha) {
@@ -231,7 +232,7 @@ public class Main {
                             agencia = Integer.parseInt(LerDados.lerDado());
                             controle.verContaEscolhida(numeroConta, agencia, dadosLogin.getCliente());
                             dadosLogin = controle.verInicioLogin();
-                            contaEscolhida = true;
+
                             break;
                         case "2":
                             System.out.println("////////////////////////////////////");
@@ -278,16 +279,32 @@ public class Main {
                             controle.transferir(valor, contaAtiva, cpf);
                             break;
                         case "4":
+                            System.out.println("////////////////////////////////////");
+                            System.out.println("Digite o numero da conta");
+                            numeroConta = Integer.parseInt(LerDados.lerDado());
+                            System.out.println("////////////////////////////////////");
+                            System.out.println("Digite o numero da agencia");
+                            agencia = Integer.parseInt(LerDados.lerDado());
+                            System.out.println("Digite o cpf do beneficiario");
+                            cpf = Integer.parseInt(LerDados.lerDado());
+                            System.out.println("Digite o valor do deposito");
+                            valor = Double.parseDouble(LerDados.lerDado());
+                            contaAtiva.setAgencia(agencia);
+                            contaAtiva.setNumero(numeroConta);
+                            controle.depositar(valor, contaAtiva, cpf);
+                            break;
+                        case "5":
                             contaAtiva.setAgencia(dadosLogin.getAgencia());
                             contaAtiva.setNumero(dadosLogin.getContaNumero());
                             contaAtiva.setNumero(dadosLogin.getIdCliente());
                             controle.imprimirExtrato(contaAtiva);
                             break;
-                        case "5":
+                        case "6":
                             dadosLogin = null;
                             login = false;
+                            contaEscolhida = false;
                             break;
-                        case "6":
+                        case "7":
                             System.out.println("Programa encerrado");
                             System.exit(0);
                             break;
