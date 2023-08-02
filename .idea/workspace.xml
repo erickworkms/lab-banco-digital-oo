@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="746782c8-4f1e-4b43-9cd8-60ae9e3a6139" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/contas/controller/ContaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/dto/ClienteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/dto/ClienteDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/dto/ContaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/dto/ContaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/exception/ContaExpection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/controller/exception/ContaException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/model/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/controller/ContaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/controller/ContaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/dto/LoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/dto/LoginDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/model/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/model/Conta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/model/ContaCorrente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/model/ContaPoupanca.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/model/IConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/service/IConta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/model/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/service/ContaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/service/ContaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/contas/service/IConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/contas/service/IConta.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +87,20 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java</url>
+          <line>37</line>
+          <properties class="org.contas.dao.Banco" method="criaContas">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/contas/dao/Banco.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

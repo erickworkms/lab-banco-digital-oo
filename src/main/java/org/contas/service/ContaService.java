@@ -11,9 +11,9 @@ public final class ContaService implements IConta {
     private static Banco banco = new Banco();
 
     @Override
-    public void criarConta(ContaDTO contaDTO,ContaType tipoConta)
+    public void criarConta(ContaDTO contaDTO)
     {
-        banco.criaContas(contaDTO,tipoConta);
+        banco.criaContas(contaDTO);
     }
 
     @Override
@@ -51,6 +51,11 @@ public final class ContaService implements IConta {
     @Override
     public LoginDTO verInicioLogin() {
         return banco.verInicioLogin();
+    }
+
+    @Override
+    public void verContaEscolhida(int numeroConta, int agencia, String usuario) {
+        banco.verContaEscolhida(numeroConta,agencia,usuario);
     }
 
     @Override

@@ -7,11 +7,12 @@ import org.contas.dto.LoginDTO;
 
 public interface IConta {
 
-	void criarConta(ContaDTO ContaDTO, ContaType tipoConta);
+	void criarConta(ContaDTO ContaDTO);
 	void deletarConta(int contaId,ClienteDTO clienteDTO);
 	boolean loginInicio();
 	boolean loginUsuario(ClienteDTO clienteDTO);
 	LoginDTO verInicioLogin();
+	void verContaEscolhida(int numeroConta,int agencia,String usuario);
 	void criarUsuario(ClienteDTO clienteDTO);
 	void deletarUsuario(ClienteDTO clienteDTO);
 	void sacar(double valor,ContaDTO ContaDTO);

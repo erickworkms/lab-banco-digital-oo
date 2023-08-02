@@ -19,7 +19,7 @@ public class Banco {
 
     private List<Conta> contas;
 
-    private Login informacaoLogin = new Login(false, null, 0,null,0,0,ContaType.CONTAPOUPANCA);
+    private Login informacaoLogin = new Login(false, null, 0,0,0,0,ContaType.CONTAPOUPANCA);
 
     public List<Cliente> getClientes() {
         return clientes;
@@ -35,20 +35,17 @@ public class Banco {
         return contas;
     }
 
-    public void criaContas(ContaDTO contaDTO, ContaType tipoConta) {
+    public void criaContas(ContaDTO contaDTO) {
         for (Cliente verCliente : clientes) {
             if (contaDTO.getIdCliente() == verCliente.getIdCliente()) {
-                Conta conta = new Conta(contaDTO.getIdCliente(),contaDTO.getTipoConta());
+                Conta conta = new Conta(contaDTO.getIdCliente(),contaDTO.getTipoConta(),verCliente.getContas().size());
                 contas.add(conta);
-                System.out.println("Usuario criado com sucesso");
-                System.out.println("NOME: "+verCliente.getNome());
-                System.out.println("DATA DE NASCIMENTO: "+verCliente.getNome());
-                System.out.println("CPF: "+verCliente.getNome());
-                System.out.println("ENDERECO: "+verCliente.getNome());
-                System.out.println("TELEFONE: "+verCliente.getNome());
-                System.out.println("EMAIL: "+verCliente.getNome());
-                System.out.println("USUARIO: "+verCliente.getNome());
-                System.out.println("SENHA: "+verCliente.getNome());
+                System.out.println("Conta criada com sucesso!  ");
+                System.out.println("Segue os dados de sua conta");
+                System.out.println("ID DE CLIENTE: "+conta.getIdCliente());
+                System.out.println("AGENCIA: "+conta.getAgencia());
+                System.out.println("NUMERO CONTA: "+conta.getNumero());
+                System.out.println("TIPO DE CONTA: "+conta.getTipoConta());
                 System.out.println("//////////////////////////////////////");
             }
             else
@@ -90,6 +87,7 @@ public class Banco {
                     clienteDTO.getEmail(),
                     clienteDTO.getSenha());
             clientes.add(dadosConta);
+            atualizaInformacaoLoginUsuario(dadosConta);
             System.out.println("Usuario criado com sucesso");
             System.out.println("NOME: "+dadosConta.getNome());
             System.out.println("DATA DE NASCIMENTO: "+dadosConta.getDataNascimento());
@@ -139,20 +137,35 @@ public class Banco {
         }
         return verSenhaCorreta;
     }
-    public void verInformacaoLogin(){/*
-        informacaoLogin.setVerUsuarioLogado(true);
-        informacaoLogin.setConta(new Conta(conta.getCliente().getIdCliente(), conta.getCliente()));
-        informacaoLogin.setCliente(conta.getCliente());
-                informacaoLogin.setVerUsuarioLogado();
-                informacaoLogin.setCliente();
-                informacaoLogin.setContaNumero();
-                informacaoLogin.setAgencia();
-                informacaoLogin.setSaldo();
-                informacaoLogin.setIdCliente();*/
+
+    public void verContaEscolhida(int numeroConta,int agencia,String usuario) {
+
+            Cliente clienteLogin = verClientes(usuario);
+            Conta contalogin = verContas(numeroConta,agencia,clienteLogin);
+            if (contalogin != null){
+                atualizaInformacaoLoginUsuario(clienteLogin);
+                atualizaInformacaoConta(contalogin);
+            }else
+                System.out.println("Conta não existente no sistema");
+        }
+    public void atualizaInformacaoLoginUsuario(Cliente dadosCliente){
+        informacaoLogin.setCliente(dadosCliente.getUsuario());
+        informacaoLogin.setIdCliente(dadosCliente.getIdCliente());
+    }
+    public void atualizaInformacaoConta(Conta dadosConta){
+        informacaoLogin.setTipoConta(dadosConta.getTipoConta());
+        informacaoLogin.setContaNumero(dadosConta.getNumero());
+        informacaoLogin.setAgencia(dadosConta.getAgencia());
+        informacaoLogin.setSaldo(dadosConta.getSaldo());
+        informacaoLogin.setIdCliente(dadosConta.getIdCliente());
     }
 
-    public void verContas(ContaDTO contaDTO){
-        //if (contaDTO.getCliente().getSenha().equals(verCliente.getSenha()))
+    public Conta verContas(int numeroConta,int agencia,Cliente cliente){
+        for (Conta verConta : cliente.getContas()) {
+            if (numeroConta == verConta.getNumero() && agencia == verConta.getAgencia()) {
+                return verConta;
+            }
+        }return null;
     }
 
     public Cliente verClientes(String usuario){

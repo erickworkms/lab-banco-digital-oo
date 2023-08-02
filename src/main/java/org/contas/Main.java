@@ -15,32 +15,32 @@ public class Main {
 
         ContaController controle = new ContaController();
 
-        ClienteDTO dadosClienteInicial = new ClienteDTO(0,"teste","teste de souza","31/09/1960","78945612332",null,"Rua do teste","5511900000000","teste@gmail.com","teste");
-        ContaDTO contaAtivaInicial = new ContaDTO(0,0,0,0, ContaType.CONTAPOUPANCA);
+        ClienteDTO dadosClienteInicial = new ClienteDTO(0, "teste", "teste de souza", "31/09/1960", "78945612332", null, "Rua do teste", "5511900000000", "teste@gmail.com", "teste");
+        ContaDTO contaAtivaInicial = new ContaDTO(0, 0, 0, 0, ContaType.CONTAPOUPANCA);
         controle.criarUsuario(dadosClienteInicial);
 
         String escolha;
         boolean login = false;
-        ContaDTO contaAtiva = new ContaDTO(0,0,0,0,ContaType.CONTAPOUPANCA);
-        ClienteDTO dadosCliente = new ClienteDTO(0,"","","0","",null,"","","","");
-        LoginDTO dadosLogin = new LoginDTO(false,"",0,"",0,0,ContaType.CONTAPOUPANCA);
+        int numeroConta;
+        int agencia;
+        ContaDTO contaAtiva = new ContaDTO(0, 0, 0, 0, ContaType.CONTAPOUPANCA);
+        ClienteDTO dadosCliente = new ClienteDTO(0, "", "", "0", "", null, "", "", "", "");
+        LoginDTO dadosLogin = new LoginDTO(false, "", 0, 0, 0, 0, ContaType.CONTAPOUPANCA);
         System.out.println("Seja bem vindo!" +
                 "\nVerificando login...");
         controle.loginInicio();
-        while (true){
-            if (!login){
+        while (true) {
+            if (!login) {
                 System.out.println("Usuario não logado no sistema");
                 System.out.println("Por favor escolha uma das opções abaixo :");
                 System.out.println("/////////////////////////////////////////");
                 System.out.println("////       1 -  Fazer Login          ////");
                 System.out.println("////       2 -  Criar Usuario        ////");
                 System.out.println("////       3 -  Deletar Usuario      ////");
-                System.out.println("////       4 -  Criar Conta          ////");
-                System.out.println("////       5 -  Fechar Conta         ////");
 
-                escolha= LerDados.lerDado();
+                escolha = LerDados.lerDado();
 
-                switch (escolha){
+                switch (escolha) {
                     case "1":
                         System.out.println("Por favor, preencha os dados abaixo:");
                         System.out.println("////////////////////////////////////");
@@ -59,8 +59,7 @@ public class Main {
                         System.out.println("  Digite a sua senha para o login   ");
                         dadosCliente.setSenha(LerDados.lerDado());
 
-                        //contaAtiva.setCliente(new Cliente(0,dadosCliente.getUsuario(),"","0","",null,"","","", dadosCliente.getSenha()));
-                        login=controle.loginUsuario(dadosCliente);
+                        login = controle.loginUsuario(dadosCliente);
                         break;
                     case "2":
                         System.out.println("Por favor, preencha os dados abaixo:");
@@ -95,15 +94,7 @@ public class Main {
                         System.out.println("////////////////////////////////////");
                         System.out.println("  Digite a sua senha para o login   ");
                         dadosCliente.setSenha(LerDados.lerDado());
-                        /*contaAtiva.setCliente(new Cliente(0,
-                                dadosCliente.getUsuario(),
-                                dadosCliente.getNome(),
-                                dadosCliente.getDataNascimento(),
-                                dadosCliente.getCpf(),null,
-                                dadosCliente.getEndereco(),
-                                dadosCliente.getTelefone(),
-                                dadosCliente.getEmail(),
-                                dadosCliente.getSenha()));*/
+
                         controle.criarUsuario(dadosCliente);
                         break;
                     case "3":
@@ -115,37 +106,97 @@ public class Main {
                         System.out.println("  Digite a sua senha para o login   ");
                         dadosCliente.setSenha(LerDados.lerDado());
 
-                       // contaAtiva.setCliente(new Cliente(0,dadosCliente.getUsuario(),"","0","",null,"","","", dadosCliente.getSenha()));
                         controle.deletarUsuario(dadosCliente);
-                        login=false;
+                        login = false;
                         break;
                     default:
                         break;
                 }
                 if (login) {
                     System.out.println("Parabéns, o login foi realizado com sucesso!");
-                }
-                else
-                System.out.println("O login falhou, tente novamente");
+                } else
+                    System.out.println("O login falhou, tente novamente");
             } else if (login) {
-                controle.verInicioLogin();
+                dadosLogin = controle.verInicioLogin();
                 System.out.println("/////////////////////////////////////////");
                 System.out.println("/////////////////////////////////////////");
-                System.out.println("Usuario : "+dadosClienteInicial.getNome());
-                System.out.println("Conta : "+contaAtiva.getNumero());
-                System.out.println("Agência : "+contaAtiva.getAgencia());
+                System.out.println("Usuario : " + dadosLogin.getCliente());
+                System.out.println("Conta : " + dadosLogin.getContaNumero());
+                System.out.println("Agência : " + dadosLogin.getAgencia());
+                System.out.println("Tipo : " + dadosLogin.getTipoConta());
+                System.out.println("Saldo : " + dadosLogin.getSaldo());
                 System.out.println("/////////////////////////////////////////");
                 System.out.println("Por favor escolha uma das opções abaixo :");
                 System.out.println("/////////////////////////////////////////");
                 System.out.println("////       1 -  Criar Conta          ////");
-                System.out.println("////       2 -  Fechar Conta         ////");
-                System.out.println("////       3 -  Deletar Usuario      ////");
-                System.out.println("////       4 -  Criar Conta          ////");
-                System.out.println("////       5 -  Fechar Conta         ////");
-                LerDados.lerDado();
+                System.out.println("////       2 -  Escolher Conta       ////");
+                System.out.println("////       3 -  Deletar Conta        ////");
+                System.out.println("////       4 -  Deslogar             ////");
+                System.out.println("////       5 -  Fechar Programa      ////");
 
+                escolha = LerDados.lerDado();
+
+                switch (escolha) {
+
+                    case "1":
+                        System.out.println("Por favor, preencha os dados abaixo:");
+                        System.out.println("////////////////////////////////////");
+                        System.out.println("  Qual o tipo de conta será criada? ");
+                        System.out.println("1 - CONTACORRENTE");
+                        System.out.println("2 - CONTAPOUPANCA");
+                        System.out.println("3 - CONTASALARIO");
+                        escolha = LerDados.lerDado();
+                        contaAtiva.setIdCliente(dadosLogin.getIdCliente());
+                        switch (escolha){
+                            case "1":
+                                contaAtiva.setTipoConta(ContaType.CONTACORRENTE);
+                                controle.criarConta(contaAtiva);
+                                break;
+                            case "2":
+                                contaAtiva.setTipoConta(ContaType.CONTAPOUPANCA);
+                                controle.criarConta(contaAtiva);
+                                break;
+                            case "3":
+                                contaAtiva.setTipoConta(ContaType.CONTASALARIO);
+                                controle.criarConta(contaAtiva);
+                                break;
+                            default:
+                                System.out.println("Opção invalida");
+                                break;
+                        }
+
+                        break;
+                    case "2":
+                        System.out.println("////////////////////////////////////");
+                        System.out.println("Digite o numero da sua conta");
+                        numeroConta = Integer.parseInt(LerDados.lerDado());
+                        System.out.println("////////////////////////////////////");
+                        System.out.println("Digite o numero da sua agencia");
+                        agencia = Integer.parseInt(LerDados.lerDado());
+                        controle.verContaEscolhida(numeroConta,agencia, dadosLogin.getCliente());
+                        dadosLogin = controle.verInicioLogin();
+                        break;
+                    case "3":
+                        System.out.println("////////////////////////////////////");
+                        System.out.println("Digite o numero da sua conta");
+                        numeroConta = Integer.parseInt(LerDados.lerDado());
+                        System.out.println("////////////////////////////////////");
+                        System.out.println("Digite o numero da sua agencia");
+                        agencia = Integer.parseInt(LerDados.lerDado());
+                        controle.deletarConta(numeroConta,dadosCliente);
+                        break;
+                    case "4":
+                        dadosLogin = null;
+                        login =false;
+                        break;
+                    case "5":
+                        System.out.println("Programa encerrado");
+                        System.exit(0);;
+                        break;
+                    default:
+                        break;
+                }
             }
-
         }
     }
 }

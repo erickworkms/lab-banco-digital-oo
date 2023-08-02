@@ -22,15 +22,11 @@ public class Conta{
 
 	private ContaType tipoConta;
 
-	public Conta(@NonNull int idCliente,ContaType tipoConta) {
+	public Conta(@NonNull int idCliente,ContaType tipoConta,int quantContas) {
 		this.idCliente = idCliente;
 		this.agencia = Conta.AGENCIA_PADRAO;
-		this.numero = SEQUENCIAL++;
+		this.numero = quantContas+1;
 		this.saldo = 0.0;
 		this.tipoConta =tipoConta;
 	}
-
-
-
-
 }

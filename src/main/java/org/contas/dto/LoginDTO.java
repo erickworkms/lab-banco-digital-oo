@@ -16,7 +16,7 @@ public class LoginDTO {
 
     private int contaNumero;
 
-    private String agencia;
+    private int agencia;
 
     private double saldo;
 

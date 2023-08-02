@@ -11,8 +11,8 @@ public class ContaController implements IConta {
     private ContaService contaService = new ContaService();
 
     @Override
-    public void criarConta(ContaDTO ContaDTO,ContaType tipoConta) {
-        contaService.criarConta(ContaDTO,tipoConta);
+    public void criarConta(ContaDTO ContaDTO) {
+        contaService.criarConta(ContaDTO);
     }
 
     @Override
@@ -33,6 +33,11 @@ public class ContaController implements IConta {
     @Override
     public LoginDTO verInicioLogin() {
         return contaService.verInicioLogin();
+    }
+
+    @Override
+    public void verContaEscolhida(int numeroConta, int agencia, String usuario) {
+        contaService.verContaEscolhida(numeroConta,agencia,usuario);
     }
 
     @Override
