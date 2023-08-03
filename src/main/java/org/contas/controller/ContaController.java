@@ -36,8 +36,8 @@ public class ContaController implements IConta {
     }
 
     @Override
-    public void verContaEscolhida(int numeroConta, int agencia, String usuario) {
-        contaService.verContaEscolhida(numeroConta,agencia,usuario);
+    public boolean verContaEscolhida(int numeroConta, int agencia, String usuario) {
+        return contaService.verContaEscolhida(numeroConta,agencia,usuario);
     }
 
     @Override

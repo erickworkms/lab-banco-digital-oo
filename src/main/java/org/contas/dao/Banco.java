@@ -40,7 +40,7 @@ public class Banco {
             if (contaDTO.getIdCliente() == verCliente.getIdCliente()) {
                 int numeroConta;
                 if (verCliente.getContas()!= null){
-                    numeroConta = verCliente.getContas().size();
+                    numeroConta = verCliente.getContas().size()+1;
                 }
                 else
                     numeroConta = 1;
@@ -141,20 +141,27 @@ public class Banco {
         VerLogin verLogin = new VerLogin();
         boolean verSenhaCorreta = verLogin.verSenhaLogin(clienteDTO, clientes);
         if (verSenhaCorreta) {
+            for (Cliente verCliente : clientes) {
+                if (clienteDTO.getUsuario().equals(verCliente.getUsuario()) && clienteDTO.getSenha().equals(verCliente.getSenha())) {
+                  atualizaInformacaoLoginUsuario(verCliente);
+                }
+            }
             System.out.println("Usuario logado corretamente");
         }
         return verSenhaCorreta;
     }
 
-    public void verContaEscolhida(int numeroConta,int agencia,String usuario) {
+    public boolean verContaEscolhida(int numeroConta,int agencia,String usuario) {
 
             Cliente clienteLogin = verClientes(usuario);
             Conta contalogin = verContas(numeroConta,agencia,clienteLogin);
             if (contalogin != null){
                 atualizaInformacaoLoginUsuario(clienteLogin);
                 atualizaInformacaoConta(contalogin);
+                return true;
             }else
                 System.out.println("Conta não existente no sistema");
+        return false;
         }
     public void atualizaInformacaoLoginUsuario(Cliente dadosCliente){
         informacaoLogin.setCliente(dadosCliente.getUsuario());
@@ -185,9 +192,9 @@ public class Banco {
     }
     public String sacar(double valor, ContaDTO contaDTO) {
 
-        if (valor >= informacaoLogin.getSaldo()) {
+        if (informacaoLogin.getSaldo() >= valor) {
             for (int i = 0; i < contas.size(); i++) {
-                if (contaDTO.getIdCliente() == contas.get(i).getIdCliente() && informacaoLogin.getIdCliente()
+                if (contaDTO.getIdCliente() == contas.get(i).getIdCliente() && informacaoLogin.getContaNumero()
                         == contas.get(i).getNumero()) {
                     contas.get(i).setSaldo(contas.get(i).getSaldo() - valor);
 
@@ -211,8 +218,8 @@ public class Banco {
         return "Não foi possivel fazer o deposito";
     }
 
-    public String transferir(double valor, ContaDTO contaDTO) {
-        if (valor >= informacaoLogin.getSaldo()) {
+    public String transferir(double valor, ContaDTO contaDTO,int cpf) {
+        if (informacaoLogin.getSaldo() >= valor ) {
             for (int i = 0; i < contas.size(); i++) {
                 if (informacaoLogin.getIdCliente() == contas.get(i).getIdCliente()
                         && informacaoLogin.getContaNumero() == contas.get(i).getNumero()) {
@@ -220,10 +227,14 @@ public class Banco {
 
                 } else if (contas.get(i).getNumero() == contaDTO.getNumero() &&
                         contas.get(i).getAgencia() == contaDTO.getAgencia()) {
-                    contas.get(i).setSaldo(contas.get(i).getSaldo() + valor);
+                    for (Cliente cliente : clientes){
+                        if (cliente.getCpf().equals(String.valueOf(cpf))){
+                            contas.get(i).setSaldo(contas.get(i).getSaldo() + valor);
+                        }
+                    }
                 }
             }
-            return "O deposito de " + valor + " reais foi realizado com sucesso.";
+            return "A transferencia de " + valor + " reais foi realizada com sucesso.";
         }
         return "Não foi possivel fazer a transferencia.";
     }

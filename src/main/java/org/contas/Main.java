@@ -177,9 +177,11 @@ public class Main {
                         System.out.println("////////////////////////////////////");
                         System.out.println("Digite o numero da sua agencia");
                         agencia = Integer.parseInt(LerDados.lerDado());
-                        controle.verContaEscolhida(numeroConta, agencia, dadosLogin.getCliente());
-                        dadosLogin = controle.verInicioLogin();
-                        contaEscolhida = true;
+                        boolean controleConta = controle.verContaEscolhida(numeroConta, agencia, dadosLogin.getCliente());
+                        if (controleConta){
+                            dadosLogin = controle.verInicioLogin();
+                            contaEscolhida = true;
+                        }
                         break;
                     case "3":
                         System.out.println("////////////////////////////////////");
@@ -267,18 +269,10 @@ public class Main {
                             break;
                         case "3":
                             System.out.println("////////////////////////////////////");
-                            System.out.println("Digite o numero da conta");
-                            numeroConta = Integer.parseInt(LerDados.lerDado());
-                            System.out.println("////////////////////////////////////");
-                            System.out.println("Digite o numero da agencia");
-                            agencia = Integer.parseInt(LerDados.lerDado());
-                            System.out.println("Digite o cpf do beneficiario");
-                            cpf = Integer.parseInt(LerDados.lerDado());
                             System.out.println("Digite o valor do deposito");
                             valor = Double.parseDouble(LerDados.lerDado());
-                            contaAtiva.setAgencia(agencia);
-                            contaAtiva.setNumero(numeroConta);
-                            controle.transferir(valor, contaAtiva, cpf);
+                            controle.sacar(valor, contaAtiva);
+                            controle.verContaEscolhida(dadosLogin.getContaNumero(),dadosLogin.getAgencia(), dadosLogin.getCliente());
                             break;
                         case "4":
                             System.out.println("////////////////////////////////////");
@@ -293,7 +287,7 @@ public class Main {
                             valor = Double.parseDouble(LerDados.lerDado());
                             contaAtiva.setAgencia(agencia);
                             contaAtiva.setNumero(numeroConta);
-                            controle.depositar(valor, contaAtiva, cpf);
+                            controle.transferir(valor, contaAtiva, cpf);
                             break;
                         case "5":
                             dadosLogin = controle.verInicioLogin();

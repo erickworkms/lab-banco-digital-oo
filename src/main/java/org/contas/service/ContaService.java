@@ -55,8 +55,8 @@ public final class ContaService implements IConta {
     }
 
     @Override
-    public void verContaEscolhida(int numeroConta, int agencia, String usuario) {
-        banco.verContaEscolhida(numeroConta,agencia,usuario);
+    public boolean verContaEscolhida(int numeroConta, int agencia, String usuario) {
+        return banco.verContaEscolhida(numeroConta,agencia,usuario);
     }
 
     @Override
@@ -86,7 +86,7 @@ public final class ContaService implements IConta {
 
     @Override
     public void transferir(double valor, ContaDTO ContaDTO,int cpf) {
-        System.out.println(banco.transferir(valor, ContaDTO));
+        System.out.println(banco.transferir(valor, ContaDTO,cpf));
     }
 
     @Override

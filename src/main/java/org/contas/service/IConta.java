@@ -12,7 +12,7 @@ public interface IConta {
 	boolean loginInicio();
 	boolean loginUsuario(ClienteDTO clienteDTO);
 	LoginDTO verInicioLogin();
-	void verContaEscolhida(int numeroConta,int agencia,String usuario);
+	boolean verContaEscolhida(int numeroConta,int agencia,String usuario);
 	void criarUsuario(ClienteDTO clienteDTO);
 	void deletarUsuario(ClienteDTO clienteDTO);
 	void sacar(double valor,ContaDTO ContaDTO);
